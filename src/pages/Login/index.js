@@ -11,10 +11,19 @@ import {
 } from '@material-ui/core';
 
 import { useHistory } from 'react-router-dom';
+import { UsuarioContext } from 'common/contexts/Usuario';
+import { useContext } from 'react'
 
-function Login({ nome, setNome, saldo, setSaldo }) {
+
+
+
+
+function Login(/* { nome, setNome, saldo, setSaldo } */) {
 
   const history = useHistory();
+  const { nome, setNome, saldo, setSaldo } = useContext(UsuarioContext);
+
+  //Para usar o USUARIO CONTEXT os Filhos devem estar como retorno de uma function 
 
   return (
     <Container>
