@@ -83,7 +83,7 @@ export const useCarrinhoContext = () => {
 
 function efetuarCompra(){
   setCarrinho([]);
-  setSaldo((saldoAtual)=> saldoAtual - valorTotalCarrinho)
+  setSaldo(saldoAtual=> saldoAtual - valorTotalCarrinho)
 
 }
 
@@ -110,7 +110,8 @@ function efetuarCompra(){
     removerProduto,
     quantidadeProdutos,
     setQuantidadeProdutos,
-    valorTotalCarrinho
+    valorTotalCarrinho,
+    efetuarCompra
 
   }
 }

@@ -65,8 +65,8 @@ function Carrinho() {
       </TotalContainer>
       <Button
         onClick={() => {
-          setOpenSnackbar(true);
           efetuarCompra();
+          setOpenSnackbar(true);
         }}
         color="primary"
         variant="contained"
