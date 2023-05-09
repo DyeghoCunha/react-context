@@ -4,6 +4,8 @@ import Login from "pages/Login";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { UsuarioProvider } from "common/contexts/Usuario";
+import { CarrinhoProvider } from "common/contexts/Carrinho";
+import { PagamentoProvider } from "common/contexts/Pagamento";
 
 
 function Router() {
@@ -19,18 +21,19 @@ function Router() {
           <Route exact path='/'>
             <Login /*    nome={nome}setNome={setNome}saldo={saldo}setSaldo={setSaldo}*/ />
           </Route>
-          <Route path='/feira'>
-            <Feira /*nome={nome} setNome={setNome} saldo={saldo} setSaldo={setSaldo}*/ />
-          </Route>
-          
+
+          <CarrinhoProvider>
+            <PagamentoProvider>
+              <Route path='/feira'>
+                <Feira /*nome={nome} setNome={setNome} saldo={saldo} setSaldo={setSaldo}*/ />
+              </Route>
+
+              <Route path='/carrinho'>
+                <Carrinho />
+              </Route>
+            </PagamentoProvider>
+          </CarrinhoProvider>
         </UsuarioProvider>
-
-        <Route path='/carrinho'>
-      
-          <Carrinho />
-
-        </Route>
-
       </Switch>
     </BrowserRouter>
   )
